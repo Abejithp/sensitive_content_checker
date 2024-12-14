@@ -8,3 +8,5 @@ libraries:
 core_version_requirement: ^9 || ^10
 dependencies:
   - drupal:block
+config: 
+  'form': 'Drupal\sensitive_content_checker\Plugin\Form\SensitiveContentConfigForm'

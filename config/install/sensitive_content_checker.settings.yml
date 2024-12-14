@@ -1,0 +1,1 @@
+blocked_classes: '.sensitive-class, .another-class, #block-mirador-block, #block-views-block-media-display-blocks-pdfjs'

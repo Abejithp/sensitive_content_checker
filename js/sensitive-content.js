@@ -1,31 +1,40 @@
-const el = document.getElementById('sensitive-content');
-const sibling = el.parentElement.parentElement.previousElementSibling.previousElementSibling;
+const blockedClasses = drupalSettings.sensitive_content_checker.blockedClasses;
 
-const overlay = document.createElement('div');
-overlay.classList.add('sensitive-overlay');
+console.log(drupalSettings);
 
-const header = document.createElement('h1');
-const description = document.createElement('p');
-const button = document.createElement('button');
+// If there are no blocked classes, exit early
+if (!blockedClasses) {
+  console.log('No classes to block.');
+}
 
-header.innerHTML = 'Content Warning';
-description.innerHTML = 'The content you are trying to view is sensitive.';
-button.innerHTML = 'See Content';
+// Split the classes by comma (assuming they are entered as comma-separated values)
+const classesToBlock = blockedClasses.split(',').map(className => className.trim());
 
-overlay.appendChild(header);
-overlay.appendChild(description);
-overlay.appendChild(button);
+// Loop through each class and find elements to block
+classesToBlock.forEach(className => {
+  const elements = document.querySelectorAll(className);
+  
+  elements.forEach(el => {
+    // Create and append the overlay
+    const overlay = document.createElement('div');
+    overlay.classList.add('sensitive-overlay');
 
-button.addEventListener('click', function () {
-    overlay.style.display = 'none';
+    const header = document.createElement('h1');
+    const description = document.createElement('p');
+    const button = document.createElement('button');
+
+    header.innerHTML = 'Content Warning';
+    description.innerHTML = 'The content you are trying to view is sensitive.';
+    button.innerHTML = 'See Content';
+
+    overlay.appendChild(header);
+    overlay.appendChild(description);
+    overlay.appendChild(button);
+
+    button.addEventListener('click', function () {
+      overlay.style.display = 'none';
+    });
+
+    el.appendChild(overlay);
+  });
 });
-
-sibling.appendChild(overlay);
-
-
-
-
-
-
-
-
