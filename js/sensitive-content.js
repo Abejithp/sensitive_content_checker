@@ -1,6 +1,7 @@
 const blockedClasses = drupalSettings.sensitive_content_checker.blockedClasses;
-
-console.log(drupalSettings);
+const titleText = drupalSettings.sensitive_content_checker.title;
+const descriptionText = drupalSettings.sensitive_content_checker.description;
+const buttonText = drupalSettings.sensitive_content_checker.buttonText;
 
 // If there are no blocked classes, exit early
 if (!blockedClasses) {
@@ -15,21 +16,26 @@ classesToBlock.forEach(className => {
   const elements = document.querySelectorAll(className);
   
   elements.forEach(el => {
-    // Create and append the overlay
-    const overlay = document.createElement('div');
-    overlay.classList.add('sensitive-overlay');
 
-    const header = document.createElement('h1');
+    const overlay = document.createElement('div');
+    const container = document.createElement('div');
+
+    overlay.classList.add('sensitive-overlay');
+    container.classList.add('sensitive-container');
+
+    const title = document.createElement('h1');
     const description = document.createElement('p');
     const button = document.createElement('button');
 
-    header.innerHTML = 'Content Warning';
-    description.innerHTML = 'The content you are trying to view is sensitive.';
-    button.innerHTML = 'See Content';
+    title.innerHTML = titleText;
+    description.innerHTML = descriptionText;
+    button.innerHTML = buttonText;
 
-    overlay.appendChild(header);
-    overlay.appendChild(description);
-    overlay.appendChild(button);
+    container.appendChild(title);
+    container.appendChild(description);
+    container.appendChild(button);
+
+    overlay.appendChild(container);
 
     button.addEventListener('click', function () {
       overlay.style.display = 'none';

@@ -1,6 +1,5 @@
 sensitive_content_checker.settings:
-  title: 'Sensitive Content Checker'
-  description: 'Administer sensitive content checker settings'
-  parent: system.admin_config_search
+  title: 'Sensitive Content'
+  description: 'Configure the settings for the Sensitive Content Checker.'
+  parent: system.admin_config_media
   route_name: sensitive_content_checker.settings
-  menu_name: admin

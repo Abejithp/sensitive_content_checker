@@ -1,1 +1,4 @@
 blocked_classes: '.sensitive-class, .another-class, #block-mirador-block, #block-views-block-media-display-blocks-pdfjs'
+title: 'Sensitive Content'
+description: 'This is a block that will display if the content is sensitive.'
+button_text: 'View Sensitive Content'
