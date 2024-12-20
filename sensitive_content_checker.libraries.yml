@@ -7,6 +7,6 @@ sensitive_content_checker:
   js:
     js/sensitive-content.js: {}
   dependencies:
-    - core/jquery
     - core/drupalSettings
     - core/drupal
+    - drupal/context

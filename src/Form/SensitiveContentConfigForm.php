@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\sensitive_content_checker\Plugin\Form;
+namespace Drupal\sensitive_content_checker\Form;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 
